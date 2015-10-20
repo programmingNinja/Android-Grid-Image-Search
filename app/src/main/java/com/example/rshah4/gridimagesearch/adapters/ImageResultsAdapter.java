@@ -45,7 +45,6 @@ public class ImageResultsAdapter extends ArrayAdapter<ImageResult> {
 		// Clear out image from last time as this could be a recycled view
 		viewHolder.ivImage.setImageResource(0);
 		Picasso.with(getContext()).load(imageResult.thumbUrl)
-			.transform(new CropSquareTransformation(parent.getWidth(), parent.getWidth()))
 			.into(viewHolder.ivImage);
 
 		// Return the completed view to render on screen
