@@ -121,9 +121,16 @@ public class SearchActivity extends FragmentActivity implements SelectFiltersDia
 			//offset = (offset-1)*8;
 		}
 		System.out.println("offset "+offset);
+
 		String url = getUrl(_query, offset, MAX_FETCH_COUNT);
 		System.out.println("url in offset " + url);
-		showImageResults(url, false);
+		if(isNetworkAvailable()) {
+			showImageResults(url, false);
+		}
+		else {
+			//display in short period of time
+			Toast.makeText(getApplicationContext(), "Network unavailable", Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	private void setupViews() {
@@ -185,8 +192,14 @@ public class SearchActivity extends FragmentActivity implements SelectFiltersDia
 				if (query != null && !query.isEmpty()) {
 					_query = query;
 					String url = getUrl(_query, 0, MAX_FETCH_COUNT);
-					System.out.println("first query "+url);
-					showImageResults(url, true);
+					System.out.println("first query " + url);
+
+					if (isNetworkAvailable())
+						showImageResults(url, true);
+					else {
+						//display in short period of time
+						Toast.makeText(getApplicationContext(), "Network unavailable", Toast.LENGTH_SHORT).show();
+					}
 				}
 				return true;
 			}
@@ -254,7 +267,13 @@ public class SearchActivity extends FragmentActivity implements SelectFiltersDia
 		_site = site;
 		if (_query != null && !_query.isEmpty()) {
 			String url = getUrl(_query, 0, MAX_FETCH_COUNT);
-			showImageResults(url, true);
+
+			if (isNetworkAvailable())
+				showImageResults(url, true);
+			else {
+				//display in short period of time
+				Toast.makeText(getApplicationContext(), "Network unavailable", Toast.LENGTH_SHORT).show();
+			}
 		}
 	}
 }
