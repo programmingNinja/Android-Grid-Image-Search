@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/miSelectFilter"
+        android:icon="@drawable/ic_settings"
+        android:showAsAction="always"
+        android:orderInCategory="41"
+        android:title="@string/title_menu_filters"/>
+</menu>

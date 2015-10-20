@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="20sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center" 
+    android:orientation="vertical">
+    
+    <Spinner
+        android:id="@+id/spFragImgSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5sp"
+        android:entries="@array/size_array"
+        android:layout_toRightOf="@+id/tvFragImgSize" />
+
+    <TextView
+        android:id="@+id/tvFragImgSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/spFragImgSize"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="bottom"
+        android:text="@string/size_label" />
+
+    <TextView
+        android:id="@+id/tvFragImgColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/spFragImgColor"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvFragImgSize"
+        android:gravity="bottom"
+        android:text="@string/color_label" />
+
+    <Spinner
+        android:id="@+id/spFragImgColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spFragImgSize"
+        android:layout_alignParentRight="true"
+        android:entries="@array/color_array"
+        android:layout_below="@+id/spFragImgSize" />
+
+    <TextView
+        android:id="@+id/tvFragImgType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/spFragImgType"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvFragImgColor"
+        android:gravity="bottom"
+        android:text="@string/type_label" />
+
+    <Spinner
+        android:id="@+id/spFragImgType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spFragImgColor"
+        android:layout_alignParentRight="true"
+        android:entries="@array/type_array"
+        android:layout_below="@+id/spFragImgColor" />
+
+    <TextView
+        android:id="@+id/tvFragSite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvFragImgType"
+        android:gravity="bottom"
+        android:paddingTop="15sp"
+        android:text="@string/site_label" />
+
+    <EditText
+        android:id="@+id/etFragSite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvFragSite"
+        android:layout_alignBottom="@+id/tvFragSite"
+        android:layout_alignLeft="@+id/spFragImgType"
+        android:layout_alignParentRight="true"
+        android:inputType="textUri"
+        android:hint="@string/site_prompt"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btnFragSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etFragSite"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:text="@string/save_label" />
+
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
+    tools:context="com.codepath.gridimagesearch.activities.ImageDisplayActivity" >
+
+    <ImageView
+        android:id="@+id/ivImageResult"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tvImageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:minLines="2"
+        android:text="@string/image_title"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>
