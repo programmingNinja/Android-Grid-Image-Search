@@ -114,22 +114,16 @@ public class SearchActivity extends FragmentActivity implements SelectFiltersDia
 		// If the offset is equal to the maximum number of images allowed from
 		// Google API
 		// Set it back to 0 to allow unlimited scrolling without error
-		if (offset >= MAX_RESULTS_COUNT) {
-			offset = 0;
-		}
-		else {
-			//offset = (offset-1)*8;
-		}
 		System.out.println("offset "+offset);
 
-		String url = getUrl(_query, offset, MAX_FETCH_COUNT);
-		System.out.println("url in offset " + url);
-		if(isNetworkAvailable()) {
+		if(isNetworkAvailable() && offset < MAX_RESULTS_COUNT) {
+			String url = getUrl(_query, offset, MAX_FETCH_COUNT);
+			System.out.println("url in offset " + url);
 			showImageResults(url, false);
 		}
 		else {
 			//display in short period of time
-			Toast.makeText(getApplicationContext(), "Network unavailable", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(getApplicationContext(), "Network unavailable", Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -165,7 +159,7 @@ public class SearchActivity extends FragmentActivity implements SelectFiltersDia
 		// Link the adapter to the view (grid view in this case)
 		gvResults.setAdapter(aImageResult);
 		// Link the scroll listener to grid view
-		gvResults.setOnScrollListener(new EndlessScrollListener(1) {
+		gvResults.setOnScrollListener(new EndlessScrollListener(8) {
 			@Override
 			public void onLoadMore(int page, int totalItemsCount) {
 				// Triggered only when new data needs to be appended to the list
